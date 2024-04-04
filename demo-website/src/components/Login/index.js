@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import Cookies from 'js-cookie'
 import {Link} from 'react-router-dom'
+import Axios from 'axios'
 import './index.css'
 import { LoginMainpage,LoginImage,UserInputContainer,LoginHeading,LoginFormContainer,LoginInputContainer,LoginLabelElement,LoginInputElement,LoginButton } from './styledComponents'
 const Login=(props)=>{
@@ -29,9 +30,20 @@ const Login=(props)=>{
     }
 
     const getdetails= async ()=>{
-        const response=await fetch('http//:localhost:3000/api')
-        const data= await response.json()
-        console.log(data)
+        const options={
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json",
+            },
+        }
+        try{
+            const response=await window.fetch(options,'http//:localhost:3000/api')
+            const data= await response.json()
+            console.log(data)
+        }catch{
+            console.log('fetch failed')
+        }
+        
     }
 
     const gettingUserLogin= async ()=>{
