@@ -1,5 +1,7 @@
 import {useState} from 'react'
 import Cookies from 'js-cookie'
+import {Link} from 'react-router-dom'
+import './index.css'
 import { LoginMainpage,LoginImage,UserInputContainer,LoginHeading,LoginFormContainer,LoginInputContainer,LoginLabelElement,LoginInputElement,LoginButton } from './styledComponents'
 const Login=(props)=>{
     const [username,setUsername]=useState("")
@@ -38,6 +40,9 @@ const Login=(props)=>{
         }
         const options={
             method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            },
             body:JSON.stringify(userDetails)
         }
         const response=await fetch(options,'http//:localhost:3000/api/login')
@@ -69,7 +74,12 @@ const Login=(props)=>{
                         <LoginInputElement onChange={onPasswordChange} isactive={passwordchange} value={password} type="password" placeholder="Enter Password"/>
                     </LoginInputContainer>
                     {showError==="true" && <p>{erorMsg}</p>}
-                    <LoginButton type="submit">Login</LoginButton>
+                    <div className='buttons-container'>
+                        <LoginButton type="submit" buttonType>Login</LoginButton>
+                        <Link className="link-item" to="/register">  
+                            <LoginButton>Register</LoginButton>
+                        </Link>
+                    </div>
                 </LoginFormContainer>
             </UserInputContainer>
         </LoginMainpage>

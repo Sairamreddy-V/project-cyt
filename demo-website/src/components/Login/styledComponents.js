@@ -76,11 +76,12 @@ export const LoginInputElement=style.input`
 `
 export const LoginButton=style.button`
     color:#ffffff;
-    background-color:#242659;
+    background-color:${props=>(props.buttonType ? "#242659":"#945f31")};
     border:none;
     border-radius:7px;
     padding:7px;
     font-size:14px;
+    width:110px;
     font-weight:bold;
     align-self:center;
     cursor:pointer;
