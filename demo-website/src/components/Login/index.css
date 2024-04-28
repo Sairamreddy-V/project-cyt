@@ -1,8 +1,17 @@
 .link-item{
     text-decoration:none;
     margin-left:20px;
+    align-self: flex-end;
 }
 .buttons-container{
     margin-top: 20px;
     align-self: center;
+    display: flex;
+    justify-content: space-between;
+}
+.successIconContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

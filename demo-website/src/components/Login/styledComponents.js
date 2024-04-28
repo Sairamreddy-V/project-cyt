@@ -1,7 +1,15 @@
 import style from 'styled-components'
 
+export const Mainpage=style.div`
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:#000000;
+`
 export const LoginMainpage=style.div`
     background-color:#000000;
+    min-width:100vw;
     height:100vh;
     @media(min-width:768px){
         display:flex;
@@ -30,7 +38,6 @@ export const LoginImage=style.img`
     border-radius:8px;
 `
 export const UserInputContainer=style.div`
-    height:400px;
     display:flex;
     flex-direction:column;
     background-color:#333635;
@@ -68,7 +75,7 @@ export const LoginInputElement=style.input`
     border-radius:5px;
     padding:7px;
     font-size:14px;
-    background-color:#d0d4d6;
+    background-color:#9fb6c4;
     border:none;
     border-bottom:${props=>(props.isactive=== true && " 2px solid red")};
     color:#000000;
@@ -81,8 +88,36 @@ export const LoginButton=style.button`
     border-radius:7px;
     padding:7px;
     font-size:14px;
-    width:110px;
+    width:80px;
+    height:30px;
     font-weight:bold;
     align-self:center;
-    cursor:pointer;
+    cursor:${props=>(props.loading===true ? "wait":"pointer")};
+    display:flex;
+    box-sizing:border-box;
+    justify-content:center;
+    align-item:center;
+`
+export const Errorpara=style.p`
+    color:#960303;
+    font-size:12px;
+    font-weight:500;
+    align-self:center;
+`
+export const RegistrationStatus=style.p`
+    color:#127811;
+    font-size:18px;
+    align-self:center;
+    font-weight:800;
+`
+export const SuccessHeading=style.h1`
+    color:#05a129;
+    font-size:28px;
+    margin-top:10px;
+    font-weight:bold;
+`
+export const ForgotPara=style.p`
+    color:#578691;
+    font-size:14px;
+    align-self:center;
 `
